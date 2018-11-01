@@ -1,0 +1,53 @@
+git status
+
+git add filename  to stage a file
+
+git commit opens a vim editor
+
+git commit -m 'message'
+
+
+git log
+
+
+
+to stage all files
+
+git add .
+
+git add *.html
+
+
+touch .gitignore
+
+open .gitignore --> *.log and save it 
+
+git branch mybranch
+
+git checkout mybranch 
+	do changes and commit it
+
+git checkout master
+
+
+git merge mybranch
+
+
+git stash 
+
+git stash apply
+
+
+
+git remote
+
+git clone "Paste the URL"
+
+
+git fetch origin
+
+git pull origin
+
+git commit -a -m "messgae"
+
+git push origin master
