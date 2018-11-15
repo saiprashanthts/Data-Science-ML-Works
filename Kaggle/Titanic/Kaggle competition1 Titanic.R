@@ -1,6 +1,6 @@
 # Importig the Required Packages
 library(dplyr)
-
+library(caTools)
 # Loading Train Data Set
 
 train <- read.csv('train.csv',header = T,stringsAsFactors = F,na.strings = '')
@@ -171,4 +171,20 @@ train_raw = cbind(numeric_train,character_train,target)
 View(train_raw)
 
 character_train <- data.frame(lapply(character_train,function(x) factor(x)))
-model.matrix(~,a)
+
+# Creating dummy variables for character columns
+dummies<- data.frame(sapply(character_train, 
+                            function(x) data.frame(model.matrix(~x-1,data =character_train))[,-1]))
+
+train_cleaned <- cbind(numeric_train,dummies,target)
+
+
+# Correlation of train_cleaned
+
+cor(train_cleaned)
+# 
+# # Spliting of train test split
+# indices<-sample.split(train_cleaned$Survived,SplitRatio = 0.7)
+# 
+# a<-train_cleaned[indices,]
+# b<-train_cleaned[!indices,]
